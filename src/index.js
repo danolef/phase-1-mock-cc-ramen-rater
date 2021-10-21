@@ -9,6 +9,11 @@
 const url= " http://localhost:3000/ramens"
 const imgContainer = document.querySelector("#ramen-menu")
 const ramenDetails = document.querySelector("#ramen-detail")
+let ramenDetailImg= ramenDetails.querySelector(".detail-image")
+let ramenDetailName= ramenDetails.querySelector(".name")
+let ramenDetailRest= ramenDetails.querySelector(".restaurant")
+let ramenDetailRating= document.querySelector("#rating-display")
+let ramenDetailComment= document.querySelector("#comment-display")
 
 // retreive data
 
@@ -28,18 +33,22 @@ function createramen(ramenObjs){
     img.src= ramenObjs.image
     imgContainer.appendChild(img)
 
-    imgContainer.addEventListener("click", addDetails(ramenObjs))
+    imgContainer.addEventListener("click", (e) => addDetails(e, ramenObjs))
 }
 
-function addDetails(ramenObjs) {
-    let ramenDetailImg= ramenDetails.querySelector(".detail-image")
-    let ramenDetailName= ramenDetails.querySelector(".name")
-    let ramenDetailRest= ramenDetails.querySelector(".restaurant")
-    let ramenDetailRating= document.querySelector("#rating-display")
-    let RamenDetailComment= document.querySelector("#comment-display")
+function addDetails(e, ramenObjs) {
 
+    e.target.nextSibling
+    
     ramenDetailImg.src= ramenObjs.image
-}
+    ramenDetailName.textContent= ramenObjs.name
+    ramenDetailRest.textContent= ramenObjs.restaurant
+    ramenDetailRating.textContent= ramenObjs.rating
+    ramenDetailComment.textContent= ramenObjs.comment
 
+//     ramenDetailImg.src= ramenObjs.image
+//     ramenDetailName.textContent= ramenObjs.name
+
+}
 // click events
 
