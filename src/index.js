@@ -14,6 +14,8 @@ let ramenDetailName= ramenDetails.querySelector(".name")
 let ramenDetailRest= ramenDetails.querySelector(".restaurant")
 let ramenDetailRating= document.querySelector("#rating-display")
 let ramenDetailComment= document.querySelector("#comment-display")
+let ramenForm= document.querySelector('form')
+
 
 // retreive data
 
@@ -50,5 +52,24 @@ function addDetails(e, ramenObjs) {
 //     ramenDetailName.textContent= ramenObjs.name
 
 }
+
 // click events
+
+ramenForm.addEventListener("submit", newRamenForm)
+
+function newRamenForm(e) {
+    e.preventDefault()
+
+    let newName= e.target.name.value
+    let newRest= e.target.restaurant.value
+    let newImage= e.target.image.value
+    
+    ramenDetailName.textContent= newName
+    ramenDetailRest.textContent= newRest
+    ramenDetailImg.src= newImage
+
+
+
+    ramenForm.reset()
+}
 
