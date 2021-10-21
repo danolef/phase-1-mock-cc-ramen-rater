@@ -8,6 +8,7 @@
 // Declear variables
 const url= " http://localhost:3000/ramens"
 const imgContainer = document.querySelector("#ramen-menu")
+const ramenDetails = document.querySelector("#ramen-detail")
 
 // retreive data
 
@@ -22,10 +23,23 @@ reteriveRamen()
 // create data content
 
 function createramen(ramenObjs){
-    let ramenImg=ramenObjs.image
+    //added img
     const img= document.createElement("img")
-    img.src= ramenImg
+    img.src= ramenObjs.image
     imgContainer.appendChild(img)
+
+    imgContainer.addEventListener("click", addDetails(ramenObjs))
 }
 
-// rendurn the content
+function addDetails(ramenObjs) {
+    let ramenDetailImg= ramenDetails.querySelector(".detail-image")
+    let ramenDetailName= ramenDetails.querySelector(".name")
+    let ramenDetailRest= ramenDetails.querySelector(".restaurant")
+    let ramenDetailRating= document.querySelector("#rating-display")
+    let RamenDetailComment= document.querySelector("#comment-display")
+
+    ramenDetailImg.src= ramenObjs.image
+}
+
+// click events
+
